@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var resultData:Result
+    var resultData:Result!
     var urlRequest:URLRequest!
     
     @IBOutlet weak var tableView: UITableView!
@@ -26,7 +26,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resultData.title.count ?? 0
+        return resultData?.title.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
