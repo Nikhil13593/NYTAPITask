@@ -59,15 +59,47 @@
 			isa = PBXGroup;
 			children = (
 				CC6D6D6D225749EE0041ACC2 /* AppDelegate.swift */,
-				CC6D6D6F225749EE0041ACC2 /* ViewController.swift */,
-				CC6D6D71225749EE0041ACC2 /* Main.storyboard */,
+				CCC246242257B56700CC4354 /* Model */,
+				CCC246252257B57100CC4354 /* Controller */,
+				CCC246262257B58500CC4354 /* View */,
+				CCC246272257B58D00CC4354 /* Cell & XIBs */,
 				CC6D6D74225749F00041ACC2 /* Assets.xcassets */,
 				CC6D6D76225749F00041ACC2 /* LaunchScreen.storyboard */,
 				CC6D6D79225749F00041ACC2 /* Info.plist */,
-				CC6D6D89225763F20041ACC2 /* Results.swift */,
-				CC6D6D8B2257664B0041ACC2 /* TableViewCell.swift */,
 			);
 			path = NYTAPITask;
+			sourceTree = "<group>";
+		};
+		CCC246242257B56700CC4354 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CC6D6D89225763F20041ACC2 /* Results.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CCC246252257B57100CC4354 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC6D6D6F225749EE0041ACC2 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CCC246262257B58500CC4354 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC6D6D71225749EE0041ACC2 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CCC246272257B58D00CC4354 /* Cell & XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				CC6D6D8B2257664B0041ACC2 /* TableViewCell.swift */,
+			);
+			path = "Cell & XIBs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
