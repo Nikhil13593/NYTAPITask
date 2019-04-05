@@ -16,4 +16,7 @@ struct Model: Codable {
 struct Results: Codable {
     var title: String?
     var abstract: String?
+    var url : String?
+    
 }
+
