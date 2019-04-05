@@ -10,30 +10,27 @@ import UIKit
 
 class ViewController: UIViewController{
     
-    // Global Declation
-    
+    //MARK: Global Var Declation
     var resultData:Model!
     var urlRequest:URLRequest!
-    
     var titleArray: [String] = []
     var abstractArray: [String] = []
     var urlArray: [String] = []
     
-    // Connection
+    //MARK: Var Connection Outlets
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.serverCommunication()
     }
-
 }
-// MARK:- UITableView Delegate & Data Source
 
+// MARK:- UITableView Delegate & Data Source
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+       return 300 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,11 +46,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 
         return cell
     }
-
-    
 }
 
-// MARK:- Function
+// MARK:- Function for ServerCommunication
 extension ViewController{
     
     func serverCommunication(){
@@ -62,13 +57,13 @@ extension ViewController{
         urlRequest.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: urlRequest) { (alldata, resp, err) in
-            print(alldata)
-            do{
+            
+            print("\(alldata)")
+        do{
                 
-               self.resultData = try JSONDecoder().decode(Model.self, from: alldata!)
+            self.resultData = try JSONDecoder().decode(Model.self, from: alldata!)
                
-                var serverData = self.resultData.results
-                
+            var serverData = self.resultData.results
                 
                 for i in 0..<self.resultData.results.count{
                     self.titleArray.append(self.resultData.results[i].title!)
@@ -76,23 +71,13 @@ extension ViewController{
                     self.urlArray.append(self.resultData.results[i].url!)
                 }
                 
-//                for i in 0..<multim.count{
-//                    var url = multim[i].multimedia
-//                    for new in 0..<url.count{
-//                        print("URL ===>")
-//                        print(url[new].url!)
-//                    }
-//                }
-//
                 DispatchQueue.main.async {
-//                    print(self.resultData ?? 0)
                     self.tableView.reloadData()
                 }
                 
             }catch{
                 print("Unable to Get Respond from Server")
             }
-            }.resume()
+        }.resume()
     }
-    
 }
