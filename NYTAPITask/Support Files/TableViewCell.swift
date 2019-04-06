@@ -13,7 +13,9 @@ class TableViewCell: UITableViewCell {
     //MARK: Var Connections Outlets
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var abstractLbl: UILabel!
-    @IBOutlet weak var urlLbl: UILabel!
+    @IBOutlet weak var publishedDateLbl: UILabel!
+    @IBOutlet weak var copyrightsLbl: UILabel!
+    @IBOutlet weak var imageURLOfImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

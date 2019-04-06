@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ViewController: UIViewController{
     
@@ -15,39 +16,23 @@ class ViewController: UIViewController{
     var urlRequest:URLRequest!
     var titleArray: [String] = []
     var abstractArray: [String] = []
-    var urlArray: [String] = []
+    var publishedDateArray: [String] = []
+    var urlImageArray: [String] = []
+    var copyright: [String] = []
+    
+    let formatter = DateFormatter()
     
     //MARK: Var Connection Outlets
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.estimatedRowHeight = 450.0  //Give an approximation here
+        tableView.rowHeight = UITableView.automaticDimension
         self.serverCommunication()
     }
 }
-
-// MARK:- UITableView Delegate & Data Source
-extension ViewController: UITableViewDelegate, UITableViewDataSource{
-   
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return 300 
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titleArray.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
-        cell.titleLbl?.text = titleArray[indexPath.row]
-        cell.abstractLbl?.text = abstractArray[indexPath.row]
-        cell.urlLbl?.text = urlArray[indexPath.row]
-
-        return cell
-    }
-}
-
 // MARK:- Function for ServerCommunication
 extension ViewController{
     
@@ -59,25 +44,66 @@ extension ViewController{
         URLSession.shared.dataTask(with: urlRequest) { (alldata, resp, err) in
             
             print("\(alldata)")
-        do{
+            
+            do{
                 
-            self.resultData = try JSONDecoder().decode(Model.self, from: alldata!)
-               
-            var serverData = self.resultData.results
+                self.resultData = try JSONDecoder().decode(Model.self, from: alldata!)
+                
+                var serverData = self.resultData.results
                 
                 for i in 0..<self.resultData.results.count{
                     self.titleArray.append(self.resultData.results[i].title!)
                     self.abstractArray.append(self.resultData.results[i].abstract!)
-                    self.urlArray.append(self.resultData.results[i].url!)
+                self.publishedDateArray.append(self.resultData.results[i].published_date!)
+                    
+                    let multiMedia = self.resultData.results[i].multimedia[3].url
+                    let compright = self.resultData.results[i].multimedia[3].copyright
+                    
+                    self.urlImageArray.append(multiMedia as! String)
+                    self.copyright.append(compright as! String)
                 }
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
                 
-            }catch{
+            }
+            catch
+            {
                 print("Unable to Get Respond from Server")
             }
         }.resume()
     }
 }
+
+// MARK:- UITableView Delegate & Data Source
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
+   
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 500
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titleArray.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
+        cell.titleLbl.text = titleArray[indexPath.row]
+        cell.abstractLbl.text = abstractArray[indexPath.row]
+        
+        let URLString =  urlImageArray[indexPath.row]
+        
+        cell.copyrightsLbl.text = copyright[indexPath.row]
+        
+        cell.imageURLOfImageView.sd_setImage(with: URL(string: "\(URLString)"), placeholderImage: UIImage(named: "placeholder.png"))
+
+        cell.publishedDateLbl.text = publishedDateArray[indexPath.row]
+
+        return cell
+    }
+    
+    
+    
+}
+

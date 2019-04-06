@@ -13,8 +13,18 @@ struct Model: Codable {
 }
 
 struct Results: Codable {
+    
     var title: String?
     var abstract: String?
-    var url : String?    
+    var published_date: String?
+    
+    // For Image Url
+    var multimedia : [Multimedia]
+}
+
+struct Multimedia: Codable {
+    var url: String?
+    var copyright: String?
+    
 }
 
