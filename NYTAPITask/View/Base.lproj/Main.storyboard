@@ -69,7 +69,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Published Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUP-4G-g4y">
-                                                    <rect key="frame" x="15" y="307" width="74" height="15.5"/>
+                                                    <rect key="frame" x="30" y="307" width="74" height="15.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -82,7 +82,7 @@
                                                 <constraint firstItem="EXk-Gf-9aa" firstAttribute="top" secondItem="rkl-yH-NGM" secondAttribute="top" id="BIE-SA-1Bc"/>
                                                 <constraint firstAttribute="trailing" secondItem="FjL-eU-3Ph" secondAttribute="trailing" constant="15" id="FBr-89-vvh"/>
                                                 <constraint firstAttribute="trailing" secondItem="EXk-Gf-9aa" secondAttribute="trailing" id="Fbr-mH-h1Z"/>
-                                                <constraint firstItem="LUP-4G-g4y" firstAttribute="leading" secondItem="rkl-yH-NGM" secondAttribute="leading" constant="15" id="FcC-93-H7z"/>
+                                                <constraint firstItem="LUP-4G-g4y" firstAttribute="leading" secondItem="rkl-yH-NGM" secondAttribute="leading" constant="30" id="FcC-93-H7z"/>
                                                 <constraint firstItem="sVo-63-MnE" firstAttribute="top" secondItem="xkS-89-8ip" secondAttribute="bottom" constant="10" id="IRT-5c-1bc"/>
                                                 <constraint firstItem="sVo-63-MnE" firstAttribute="leading" secondItem="rkl-yH-NGM" secondAttribute="leading" constant="15" id="QQ5-fo-Ec4"/>
                                                 <constraint firstItem="a1p-i8-Knc" firstAttribute="top" secondItem="FjL-eU-3Ph" secondAttribute="bottom" constant="20" id="SYC-tv-0ew"/>
