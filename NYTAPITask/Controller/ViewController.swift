@@ -20,7 +20,6 @@ class ViewController: UIViewController{
     var urlImageArray: [String] = []
     var copyright: [String] = []
     
-    let formatter = DateFormatter()
     
     //MARK: Var Connection Outlets
     @IBOutlet weak var tableView: UITableView!
