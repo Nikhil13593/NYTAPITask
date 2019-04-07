@@ -80,7 +80,7 @@ extension ViewController{
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 500
+        return UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,8 +97,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         cell.copyrightsLbl.text = copyright[indexPath.row]
         
         cell.imageURLOfImageView.sd_setImage(with: URL(string: "\(URLString)"), placeholderImage: UIImage(named: "placeholder.png"))
-
-        cell.publishedDateLbl.text = publishedDateArray[indexPath.row]
+        
+        //Here We Created a Date Formater
+        let dateFormatter = DateFormatter()
+        // Giving the format for which format you want the date
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        // Here we are converting String Date to Date Formate which we already mention formate and Storing in variable acording to index path
+        let dateManual = dateFormatter.date(from:publishedDateArray[indexPath.row])
+        //Again Created a Date Formater Variable
+        let NewdateFormatter = DateFormatter()
+        // Given the New formate for Recieved date
+        NewdateFormatter.dateFormat = "MMMM dd"
+        // Converting Date to String Format which we taken Update & Storing in Variable
+        let newDate = NewdateFormatter.string(from: dateManual!)
+        cell.publishedDateLbl.text = newDate
 
         return cell
     }

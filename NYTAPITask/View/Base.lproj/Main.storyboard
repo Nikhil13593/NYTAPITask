@@ -88,6 +88,7 @@
                                                 <constraint firstItem="a1p-i8-Knc" firstAttribute="top" secondItem="FjL-eU-3Ph" secondAttribute="bottom" constant="20" id="SYC-tv-0ew"/>
                                                 <constraint firstAttribute="trailing" secondItem="xkS-89-8ip" secondAttribute="trailing" constant="15" id="cTB-Il-2Wm"/>
                                                 <constraint firstItem="xkS-89-8ip" firstAttribute="top" secondItem="EXk-Gf-9aa" secondAttribute="bottom" constant="10" id="hDT-p3-ovX"/>
+                                                <constraint firstAttribute="bottom" secondItem="LUP-4G-g4y" secondAttribute="bottom" constant="33" id="jaF-Wc-uFf"/>
                                                 <constraint firstItem="EXk-Gf-9aa" firstAttribute="leading" secondItem="rkl-yH-NGM" secondAttribute="leading" id="m0N-A0-mqN"/>
                                                 <constraint firstAttribute="trailing" secondItem="sVo-63-MnE" secondAttribute="trailing" constant="15" id="v5y-mM-8PC"/>
                                                 <constraint firstItem="kOX-Me-Pg7" firstAttribute="top" secondItem="FjL-eU-3Ph" secondAttribute="bottom" constant="20" id="wg7-sh-F1m"/>
@@ -120,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="-12"/>
+            <point key="canvasLocation" x="1675" y="7"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RBW-Vt-Z04">
@@ -139,7 +140,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctv-Ia-WXu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="832" y="-97"/>
+            <point key="canvasLocation" x="862" y="-94"/>
         </scene>
     </scenes>
     <resources>
